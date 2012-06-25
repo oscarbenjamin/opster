@@ -68,7 +68,7 @@ Ok, then let's run it::
 Yeah, nice one, but we know that command ``complex`` is just hidden there. Let's
 check it out::
 
-  $ OPSTER_OUT_ENCODING=utf-8 run multicommands.py help complex
+  $ run multicommands.py help complex
   multicommands.py complex [-p] [--exit value] ...
   
   That's more complex command intended to do something
@@ -733,3 +733,42 @@ that we can have subsubcommands.
   $ run subcmds.py cmd subcmd3 subsubcmd -l
   running subsubcmd
 
+Check the `varargs` works when calling ```main``` directly::
+
+  $ run varargs_py2.py
+  
+  main():
+  TypeError raised
+  
+  main("a"):
+  shop: a
+  cheeses: ()
+  music: False
+  
+  main("a", "b"):
+  shop: a
+  cheeses: ('b',)
+  music: False
+  
+  main("a", "b", "c"):
+  shop: a
+  cheeses: ('b', 'c')
+  music: False
+  
+  main(music=True):
+  TypeError raised
+  
+  main("a", music=True):
+  shop: a
+  cheeses: ()
+  music: True
+  
+  main("a", "b", music=True):
+  shop: a
+  cheeses: ('b',)
+  music: True
+  
+  main("a", "b", "c", music=True):
+  shop: a
+  cheeses: ('b', 'c')
+  music: True
