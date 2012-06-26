@@ -161,3 +161,93 @@ Now lets try the wrong number of positional arguments::
    -o --option  Help for --option
    -h --help    display help
 
+
+Required and optional positional arguments and options
+------------------------------------------------------
+
+Now a script that has both required and optional positional arguments as well
+as options::
+
+  $ run scripts/pos_2-4args_1opt_py3.py --help
+  pos_2-4args_1opt_py3.py [OPTIONS] ARG1 ARG2 [ARG3] [ARG4]
+  
+  Help for pos_2-4args_1opt_py3.py
+  
+  options:
+  
+   -o --option  Help for --option
+   -h --help    display help
+
+  $ run scripts/pos_2-4args_1opt_py3.py val1 val2
+  Running pos_2-4args_1opt_py3.py
+  arg1 = val1
+  arg2 = val2
+  arg3 = default3
+  arg4 = default4
+  option = False
+
+  $ run scripts/pos_2-4args_1opt_py3.py val1 val2 --option
+  Running pos_2-4args_1opt_py3.py
+  arg1 = val1
+  arg2 = val2
+  arg3 = default3
+  arg4 = default4
+  option = True
+
+  $ run scripts/pos_2-4args_1opt_py3.py val1 val2 val3
+  Running pos_2-4args_1opt_py3.py
+  arg1 = val1
+  arg2 = val2
+  arg3 = val3
+  arg4 = default4
+  option = False
+
+  $ run scripts/pos_2-4args_1opt_py3.py val1 val2 val3 --option
+  Running pos_2-4args_1opt_py3.py
+  arg1 = val1
+  arg2 = val2
+  arg3 = val3
+  arg4 = default4
+  option = True
+
+  $ run scripts/pos_2-4args_1opt_py3.py val1 val2 val3 val4
+  Running pos_2-4args_1opt_py3.py
+  arg1 = val1
+  arg2 = val2
+  arg3 = val3
+  arg4 = val4
+  option = False
+
+  $ run scripts/pos_2-4args_1opt_py3.py val1 val2 val3 val4 --option
+  Running pos_2-4args_1opt_py3.py
+  arg1 = val1
+  arg2 = val2
+  arg3 = val3
+  arg4 = val4
+  option = True
+
+  $ run scripts/pos_2-4args_1opt_py3.py val1
+  pos_2-4args_1opt_py3.py: invalid arguments
+  
+  pos_2-4args_1opt_py3.py [OPTIONS] ARG1 ARG2 [ARG3] [ARG4]
+  
+  Help for pos_2-4args_1opt_py3.py
+  
+  options:
+  
+   -o --option  Help for --option
+   -h --help    display help
+
+  $ run scripts/pos_2-4args_1opt_py3.py val1 val2 val3 val4 val5
+  pos_2-4args_1opt_py3.py: invalid arguments
+  
+  pos_2-4args_1opt_py3.py [OPTIONS] ARG1 ARG2 [ARG3] [ARG4]
+  
+  Help for pos_2-4args_1opt_py3.py
+  
+  options:
+  
+   -o --option  Help for --option
+   -h --help    display help
+
+

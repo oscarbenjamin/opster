@@ -35,7 +35,7 @@ test2to3:
 	"$(PYTHON3)" setup.py build
 	2to3 --doctests_only --write "$(BUILD_DIR)"/opster.py
 	"$(PYTHON3)" "$(BUILD_DIR)"/opster.py
-	$(CRAM3) tests/*.23.rst tests/*.3.rst tests/opster.t tests/py3k.t
+	$(CRAM3) tests/*.2.rst tests/*.23.rst tests/*.3.rst tests/opster.t tests/py3k.t
 
 coverage:
 	coverage erase
