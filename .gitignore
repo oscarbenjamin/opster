@@ -2,6 +2,7 @@
 docs/_build/
 MANIFEST
 dist/
+build/
 opster.egg-info/
 tests/*.t.err
 tests/coverage.db

@@ -2,6 +2,7 @@
 [run]
 branch = True
 data_file = tests/coverage.db
+parallel = True
 
 [report]
 # Regexes for lines to exclude from consideration
