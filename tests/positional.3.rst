@@ -10,7 +10,7 @@ keyword-only argument style. These tests can only be run with Python 3.
 
 First we need to setup::
 
-  $ source "$TESTDIR/setup.sh"
+  $ . "$TESTDIR/setup.sh"
 
 No arguments and 1 option
 -------------------------

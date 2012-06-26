@@ -10,7 +10,7 @@ This particular test suite is for scripts written with the Python 2 format
 
 First we need to setup::
 
-  $ source "$TESTDIR/setup.sh"
+  $ . "$TESTDIR/setup.sh"
 
 No arguments and 1 option
 -------------------------

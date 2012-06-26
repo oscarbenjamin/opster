@@ -11,7 +11,7 @@ works.
 
 .. hidden::
 
-  $ source "$TESTDIR/setup.sh"
+  $ . "$TESTDIR/setup.sh"
 
 Actors cast
 -----------

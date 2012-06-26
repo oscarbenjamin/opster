@@ -8,7 +8,7 @@ This is the cram test suite for Opster's handling of positional arguments.
 
 First we need to setup::
 
-  $ source "$TESTDIR/setup.sh"
+  $ . "$TESTDIR/setup.sh"
 
 No arguments
 ------------
