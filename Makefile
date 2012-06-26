@@ -1,10 +1,11 @@
 .PHONY: help docs arch test
 
 SHELL ?= /bin/sh
-CRAM = cram --shell="$(SHELL)" --preserve-env
+CRAM = cram --shell="$(SHELL)" --preserve-env --verbose
 PYTHON3 = python3
 BUILD_DIR = `pwd`/build/lib
 COVERAGE_FILE = `pwd`/.coveragerc
+CRAM3 = PYTHON="$(PYTHON3)" OPSTER_DIR="$(BUILD_DIR)" $(CRAM)
 
 help:
 	@echo "Use \`make <target>\` with one of targets:"
@@ -28,18 +29,13 @@ arch:
 
 test:
 	python opster.py
-	$(CRAM) tests/opster.t
-	$(CRAM) tests/*.2.rst
-	$(CRAM) tests/*.23.rst
+	$(CRAM) tests/*.2.rst tests/*.23.rst tests/opster.t
 
 test2to3:
 	"$(PYTHON3)" setup.py build
 	2to3 --doctests_only --write "$(BUILD_DIR)"/opster.py
 	"$(PYTHON3)" "$(BUILD_DIR)"/opster.py
-	PYTHON="$(PYTHON3)" OPSTER_DIR="$(BUILD_DIR)" $(CRAM) tests/opster.t
-	PYTHON="$(PYTHON3)" OPSTER_DIR="$(BUILD_DIR)" $(CRAM) tests/py3k.t
-	PYTHON="$(PYTHON3)" OPSTER_DIR="$(BUILD_DIR)" $(CRAM) tests/*.23.rst
-	PYTHON="$(PYTHON3)" OPSTER_DIR="$(BUILD_DIR)" $(CRAM) tests/*.3.rst
+	$(CRAM3) tests/*.23.rst tests/*.3.rst tests/opster.t tests/py3k.t
 
 coverage:
 	coverage erase
