@@ -37,6 +37,11 @@ test2to3:
 	"$(PYTHON3)" "$(BUILD_DIR)"/opster.py
 	$(CRAM3) tests/*.2.rst tests/*.23.rst tests/*.3.rst tests/opster.t tests/py3k.t
 
+testall:
+	make test
+	make test2to3
+	make doctest
+
 coverage:
 	coverage erase
 	COVERAGE_PROCESS_START=$(COVERAGE_FILE) make test
